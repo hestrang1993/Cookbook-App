@@ -65,6 +65,6 @@ class RecipeNoteScraper:
     @property
     def note_text(self):
         """
-        str: The text within the recipe notes.
+        bs4.element.Tag: The text within the recipe notes.
         """
         return self._note_text
