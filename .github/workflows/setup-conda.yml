@@ -22,18 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
       
       # Setup conda to use in later actions
       - name: setup-conda
@@ -42,10 +30,10 @@ jobs:
         uses: s-weigand/setup-conda@v1.1.0
         with:
           # Whether to activate the conda base env (Default: 'true')
-          activate-conda: true
+          activate-conda: 'true'
           # If conda should be updated before running other commands (Default: 'false')
-          update-conda: true
+          update-conda: 'true'
           # Python version which should be installed with conda (default: 'Default')
-          python-version: default
+          python-version: 'true'
           # Additional channels like 'conda-forge' which can be used to install packages
-          conda-channels: conda-forge
+          conda-channels: 'conda-forge'
