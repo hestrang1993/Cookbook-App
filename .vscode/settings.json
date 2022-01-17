@@ -1,0 +1,152 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Material Deep Ocean",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb",
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "python.pythonPath": "C:\\Users\\harri\\anaconda3\\python.exe",
+    "gitlens.advanced.messages": {
+        "suppressGitMissingWarning": true
+    },
+    "editor.renderIndentGuides": false,
+    "kite.showWelcomeNotificationOnStartup": false,
+    "git.autofetch": true,
+    "redhat.telemetry.enabled": true,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "push:command"
+    ],
+    "cSpell.userWords": [
+        "cloze",
+        "Frain",
+        "securitylevel",
+        "sketchypharm",
+        "Strang"
+    ],
+    "markdown.preview.breaks": true,
+    "markdown.showToolbar": true,
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+    "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+    "markdown-preview-enhanced.enableHTML5Embed": true,
+    "markdown.previewFeatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "markdownExtended.tocLevels": [
+        1,
+        2,
+        3
+    ],
+    "workbench.settings.openDefaultSettings": true,
+    "markdown.allAvailableLanguages": true,
+    "html.format.endWithNewline": true,
+    "kite.loggingLevel": "verbose",
+    "markdown.extension.toc.orderedList": true,
+    "jupyter.alwaysTrustNotebooks": true,
+    "autoDocstring.startOnNewLine": true,
+    "autoDocstring.includeExtendedSummary": true,
+    "autoDocstring.includeName": true,
+    "jupyter.ignoreVscodeTheme": true,
+    "python.languageServer": "Jedi",
+    "terminal.integrated.tabs.enabled": true,
+    "vsintellicode.features.python.deepLearning": "enabled",
+    "python.autoComplete.addBrackets": true,
+    "autoDocstring.docstringFormat": "numpy",
+    "projectManager.git.baseFolders": [
+        "C:\\Users\\harri\\OneDrive\\Documents\\GitHub",
+        "C:\\Users\\harri\\PycharmProjects"
+    ],
+    "html.format.indentInnerHtml": true,
+    "jshint.lintHTML": true,
+    "bracketPairColorizer.showBracketsInGutter": true,
+    "bracketPairColorizer.showBracketsInRuler": true,
+    "bracketPairColorizer.highlightActiveScope": true,
+    "bracketPairColorizer.forceUniqueOpeningColor": true,
+    "bracketPairColorizer.forceIterationColorCycle": true,
+    "bracketPairColorizer.activeScopeCSS": [
+        "borderStyle : solid",
+        "borderWidth : 1px",
+        "borderColor : {color}; opacity: 0.5"
+    ],
+    "bracketPairColorizer.consecutivePairColors": [
+        [
+            "<",
+            "</"
+        ],
+        [
+            "<",
+            "/>"
+        ],
+        [
+            "Gold",
+            "Orchid",
+            "LightSkyBlue"
+        ],
+        "Red"
+    ],
+    "linthtml.configFile": "",
+    "tabnine.experimentalAutoImports": true,
+    "editor.linkedEditing": true,
+    "beautify.language": {
+        "js": {
+            "type": [
+                "javascript",
+                "json",
+                "jsonc"
+            ],
+            "filename": [
+                ".jshintrc",
+                ".jsbeautifyrc"
+            ]
+        },
+        "css": [
+            "css",
+            "less",
+            "scss"
+        ],
+        "html": [
+            "htm",
+            "html"
+        ]
+    },
+    "python.defaultInterpreterPath": "C:\\Users\\harri\\anaconda3\\python.exe",
+    "security.workspace.trust.untrustedFiles": "open",
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "cmake.configureOnOpen": true,
+    "editor.accessibilitySupport": "on",
+    "files.autoSave": "afterDelay",
+    "markdown.styles": [
+        "https://github.com/jez/pandoc-markdown-css-theme/blob/master/public/css/theme.css"
+    ],
+    "npm.enableRunFromFolder": true,
+    "npm-intellisense.scanDevDependencies": true,
+    "npm-intellisense.packageSubfoldersIntellisense": true,
+    "[css]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "markdown-preview-enhanced.enableTypographer": true,
+    "markdown-preview-enhanced.HTML5EmbedIsAllowedHttp": true,
+    "markdown-preview-enhanced.enableCriticMarkupSyntax": true,
+    "markdown-preview-enhanced.pandocPath": "C:\\Program Files\\Pandoc\\pandoc.exe",
+    "settingsSync.ignoredSettings": [
+        "-markdown-preview-enhanced.pandocPath"
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "bracketPairColorizer.depreciation-notice": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    }
+}
