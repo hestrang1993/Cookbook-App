@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # HTML files
-html/
-*.html
+!/html/*
+/html
