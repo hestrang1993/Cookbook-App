@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import codecs
+import re
 
 from bs4 import BeautifulSoup
 
@@ -24,8 +25,9 @@ class RecipeNoteScraper:
         self._html_file = codecs.open(
             self._recipe_note_html_path, encoding='utf-8').read()
         self._soup = BeautifulSoup(self._html_file, 'html.parser')
-        self._note_text = str(self._soup.find(
-            self.html_attr, class_=self._attr_class))
+        self._note_tag = self.soup.find_all(
+            self.html_attr, class_=self.attr_class)
+        self._note_text = self._split_soup_text(self.note_tag)
 
     @property
     def html_attr(self):
@@ -63,8 +65,34 @@ class RecipeNoteScraper:
         return self._soup
 
     @property
-    def note_text(self):
+    def note_tag(self):
         """
         str: The text within the recipe notes.
         """
+        return self._note_tag
+
+    @property
+    def note_text(self):
         return self._note_text
+
+    @staticmethod
+    def _split_soup_text(soup_instance):
+        """
+        Remove all the extra spaces from text within a soup instance.
+        Replace these extra spaces with newlines.
+        
+        Parameters
+        ----------
+        soup_instance : ResultSet
+            The BeautifulSoup instance containing the text.
+            
+        Returns
+        -------
+        str
+            A string containing the desired text, with useful formatting.
+        """
+        text_list = [element.string for element in soup_instance]
+        text_list = [re.sub(r'[\t\r\n]', '', element) for element in text_list]
+        text_str = str(text_list[0])
+        text_str = re.sub(r'\s{2,}', "\n", text_str)
+        return text_str
