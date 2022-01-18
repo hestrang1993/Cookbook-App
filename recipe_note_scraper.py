@@ -24,8 +24,8 @@ class RecipeNoteScraper:
         self._html_file = codecs.open(
             self._recipe_note_html_path, encoding='utf-8').read()
         self._soup = BeautifulSoup(self._html_file, 'html.parser')
-        self._note_text = self._soup.find(
-            self.html_attr, class_=self._attr_class)
+        self._note_text = str(self._soup.find(
+            self.html_attr, class_=self._attr_class))
 
     @property
     def html_attr(self):
@@ -65,6 +65,6 @@ class RecipeNoteScraper:
     @property
     def note_text(self):
         """
-        bs4.element.Tag: The text within the recipe notes.
+        str: The text within the recipe notes.
         """
         return self._note_text
