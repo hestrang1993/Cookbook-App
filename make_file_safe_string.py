@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Url: https://gist.github.com/wassname/1393c4a57cfcbf03641dbc31886123b8
 """
@@ -59,7 +60,7 @@ def _preserve_valid_ascii_character(filename):
 def _remove_extra_whitespaces(filename):
     """
     Remove any extra whitespaces around the filename string.
-    
+
     Parameters
     ----------
     filename : str
@@ -78,14 +79,14 @@ def _preserve_whitelisted_characters(cleaned_filename, whitelist=valid_filename_
     """
     Preserve whitelisted characters in the filename.
     Truncate the filename to the first 256 characters.
-    
+
     Parameters
     ----------
     cleaned_filename : str
         The pre-processed filename.
     whitelist : str
         A string containing all the valid characters.
-    
+
     Returns
     -------
     str
@@ -101,7 +102,7 @@ def _preserve_whitelisted_characters(cleaned_filename, whitelist=valid_filename_
 def clean_filename(filename, whitelist=valid_filename_chars, replace=' '):
     """
     Create a clean filename.
-    
+
     Parameters
     ----------
     filename : str
@@ -110,7 +111,7 @@ def clean_filename(filename, whitelist=valid_filename_chars, replace=' '):
         A string containing all the whitelisted characters.
     replace : str
         By default, space.
-        
+
     Returns
     -------
     str
