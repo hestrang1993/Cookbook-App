@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 import codecs
+import os
 import re
 
 from bs4 import BeautifulSoup
+
+from make_file_safe_string import clean_filename
 
 
 class RecipeNoteScraper:
@@ -10,7 +13,7 @@ class RecipeNoteScraper:
      The RecipeNoteScraper class uses codecs and BeautifulSoup to scrape the notes from my mom's recipe app.
     """
 
-    def __init__(self, recipe_note_html_path):
+    def __init__(self, recipe_note_html_path, recipe_text_root):
         """
         Create a new instance of RecipeNoteScraper.
 
@@ -18,10 +21,13 @@ class RecipeNoteScraper:
         ----------
         recipe_note_html_path : str
             The absolute file path to the HTML file containing the recipe text.
+        recipe_text_root: str
+            The absolute file path to the directory that will store the text file.
         """
         self._note_attr = 'span'
         self._note_class = 'recipe-notes theme-action-text ng-binding ng-scope'
         self._recipe_note_html_path = recipe_note_html_path
+        self._recipe_text_root = recipe_text_root
         self._html_file = codecs.open(
             self._recipe_note_html_path, encoding='utf-8').read()
         self._soup = BeautifulSoup(self.html_file, 'html.parser')
@@ -32,6 +38,8 @@ class RecipeNoteScraper:
         self._title_class = 'recipe-title ng-binding ng-scope'
         self._title_tag = self.soup.find(self.title_attr, class_=self.title_class)
         self._title_text = self.title_tag.text
+        self._os_root = os.path.dirname(os.path.abspath(__file__))
+        self._text_file_abs_path = self._make_absolute_filepath_for_text_file()
 
     @property
     def note_attr(self):
@@ -53,6 +61,13 @@ class RecipeNoteScraper:
         str: The absolute file path to the HTML file containing the recipe text.
         """
         return self._recipe_note_html_path
+
+    @property
+    def recipe_text_root(self):
+        """
+        str: The absolute file path to the directory that will store the text file.
+        """
+        return self._recipe_text_root
 
     @property
     def html_file(self):
@@ -107,6 +122,10 @@ class RecipeNoteScraper:
         """
         return self._title_text
 
+    @property
+    def text_file_abs_path(self):
+        return self._text_file_abs_path
+
     @staticmethod
     def _split_soup_text(soup_instance):
         """
@@ -128,3 +147,13 @@ class RecipeNoteScraper:
         text_str = str(text_list[0])
         text_str_sub = re.sub(r'\s{2,}', "\n", text_str)
         return text_str_sub
+
+    def _make_absolute_filepath_for_text_file(self):
+        recipe_text_safe_str = clean_filename(self.title_text)
+        recipe_text_file_name = f"{recipe_text_safe_str}.txt"
+        return os.path.join(self._os_root, self.recipe_text_root, recipe_text_file_name)
+
+    def write_text_file(self):
+        with open(self.text_file_abs_path, "w", encoding="utf-8") as txt_file:
+            txt_file.write(f'{self.title_text}\n')
+            txt_file.write(self.note_text)

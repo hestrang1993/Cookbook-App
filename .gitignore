@@ -132,3 +132,6 @@ dmypy.json
 html/
 !/html/
 html/test.html
+
+# Recipe text files
+txt/*txt
