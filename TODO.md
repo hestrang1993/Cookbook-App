@@ -4,12 +4,14 @@ This repository stores and versions my work formatting recipes in mom's CookBook
 
 ## Need to Start
 
+## In Progress
+
 - [ ] Update `RecipeNoteScraper`
-    - [ ] Grab title of recipe
     - [ ] Write text file
         - [ ] Title the file into a file-safe format
-
-## In Progress
+        - [ ] Save file to a specific directory
 
 ## Completed
 
+- [X] Update `RecipeNoteScraper`
+    - [X] Grab title of recipe
