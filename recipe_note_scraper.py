@@ -19,29 +19,33 @@ class RecipeNoteScraper:
         recipe_note_html_path : str
             The absolute file path to the HTML file containing the recipe text.
         """
-        self._html_attr = 'span'
-        self._attr_class = 'recipe-notes theme-action-text ng-binding ng-scope'
+        self._note_attr = 'span'
+        self._note_class = 'recipe-notes theme-action-text ng-binding ng-scope'
         self._recipe_note_html_path = recipe_note_html_path
         self._html_file = codecs.open(
             self._recipe_note_html_path, encoding='utf-8').read()
-        self._soup = BeautifulSoup(self._html_file, 'html.parser')
+        self._soup = BeautifulSoup(self.html_file, 'html.parser')
         self._note_tag = self.soup.find_all(
-            self.html_attr, class_=self.attr_class)
+            self.note_attr, class_=self.note_class)
         self._note_text = self._split_soup_text(self.note_tag)
+        self._title_attr = 'h3'
+        self._title_class = 'recipe-title ng-binding ng-scope'
+        self._title_tag = self.soup.find(self.title_attr, class_=self.title_class)
+        self._title_text = self.title_tag.text
 
     @property
-    def html_attr(self):
+    def note_attr(self):
         """
         str: The HTML attribute that contains the recipe notes.
         """
-        return self._html_attr
+        return self._note_attr
 
     @property
-    def attr_class(self):
+    def note_class(self):
         """
         str: The class for the HTML tag that contains the recipe notes.
         """
-        return self._attr_class
+        return self._note_class
 
     @property
     def recipe_note_html_path(self):
@@ -67,13 +71,41 @@ class RecipeNoteScraper:
     @property
     def note_tag(self):
         """
-        str: The text within the recipe notes.
+        ResultSet: The BeautifulSoup object that contains the text within the recipe notes.
         """
         return self._note_tag
 
     @property
     def note_text(self):
         return self._note_text
+
+    @property
+    def title_attr(self):
+        """
+        str: The HTML tag that contains the title of the recipe.
+        """
+        return self._title_attr
+
+    @property
+    def title_class(self):
+        """
+        str: The class used within the HTML tag that contains the title of the recipe.
+        """
+        return self._title_class
+
+    @property
+    def title_tag(self):
+        """
+        Tag: The BeautifulSoup object that contains the title of the recipe.
+        """
+        return self._title_tag
+
+    @property
+    def title_text(self):
+        """
+        str: The title of the recipe.
+        """
+        return self._title_text
 
     @staticmethod
     def _split_soup_text(soup_instance):
@@ -92,7 +124,7 @@ class RecipeNoteScraper:
             A string containing the desired text, with useful formatting.
         """
         text_list = [element.string for element in soup_instance]
-        text_list = [re.sub(r'[\t\r\n]', '', element) for element in text_list]
+        text_list = [re.sub(r'[\t\r\n]\s{2,}', "", element) for element in text_list]
         text_str = str(text_list[0])
-        text_str = re.sub(r'\s{2,}', "\n", text_str)
-        return text_str
+        text_str_sub = re.sub(r'\s{2,}', "\n", text_str)
+        return text_str_sub
