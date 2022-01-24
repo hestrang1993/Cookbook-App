@@ -24,7 +24,7 @@ class RecipeScraper:
         self._text_file_name = clean_filename(f"{self.recipe_title}.txt")
         self._notes_result_set = self.soup.find_all(self.notes_attr, self.notes_dict)
         self._notes_tag = self.notes_result_set[1]
-        self._notes_text = self.notes_tag.get_text()
+        self._notes_text = self.format_text(self.notes_tag)
         self._text_file_path = os.path.join(self.os_root, self.text_dir, self.text_file_name)
 
     @property
@@ -91,6 +91,13 @@ class RecipeScraper:
     def text_file_path(self):
         return self._text_file_path
 
+    @staticmethod
+    def format_text(tag):
+        tag_str = str(tag)
+        tag_str = tag_str.replace("<br/>", "\n")
+        tag_soup = BeautifulSoup(tag_str, "html.parser")
+        return tag_soup.text
+
     def write_text_file(self):
         """
         Write a text file with the notes of a recipe.
@@ -102,4 +109,4 @@ class RecipeScraper:
         """
         with open(self.text_file_path, "w", encoding="utf-8") as txt_file:
             txt_file.write(f'{self.recipe_title}\n')
-            txt_file.write(self.get_formatted_notes_string())
+            txt_file.write(self.notes_text)
