@@ -160,7 +160,8 @@ class RecipeNoteScraper:
         
         Returns
         -------
-        str: The absolute file path for the text file.
+        str
+            The absolute file path for the text file.
         """
         recipe_text_safe_str = clean_filename(self.title_text)
         recipe_text_file_name = f"{recipe_text_safe_str}.txt"
