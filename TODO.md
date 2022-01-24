@@ -6,9 +6,19 @@ This repository stores and versions my work formatting recipes in mom's CookBook
 
 ## In Progress
 
+- [ ] `RecipeScraper`
+    - [X] Grab title
+    - [X] Get the notes as a `ResultSet`
+    - [ ] Load a text root directory as an argument
+    - [ ] Process the `ResultSet` note object into a `str`
+        - [ ] Replace the `<br>` tags with newlines (`\n`).
+    - [ ] Save the note `str` as a text file.
+        - [X] Make a file name safe `str` to name the text file.
+        - [ ] Create an absolute file path to save the text file to the text directory.
+
 ## Completed
 
-- [X] Update `RecipeNoteScraper`
+- [X] `RecipeNoteScraper`
     - [X] Grab title of recipe
     - [X] Write text file
         - [X] Title the file into a file-safe format
