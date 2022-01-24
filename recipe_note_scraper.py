@@ -92,6 +92,9 @@ class RecipeNoteScraper:
 
     @property
     def note_text(self):
+        """
+        str: The text within the recipe notes.
+        """
         return self._note_text
 
     @property
@@ -124,6 +127,9 @@ class RecipeNoteScraper:
 
     @property
     def text_file_abs_path(self):
+        """
+        str: The absolute file path for the text file.
+        """
         return self._text_file_abs_path
 
     @staticmethod
@@ -149,11 +155,26 @@ class RecipeNoteScraper:
         return text_str_sub
 
     def _make_absolute_filepath_for_text_file(self):
+        """
+        Make an absolute file path for the text file.
+        
+        Returns
+        -------
+        str: The absolute file path for the text file.
+        """
         recipe_text_safe_str = clean_filename(self.title_text)
         recipe_text_file_name = f"{recipe_text_safe_str}.txt"
         return os.path.join(self._os_root, self.recipe_text_root, recipe_text_file_name)
 
     def write_text_file(self):
+        """
+        Write a text file with the notes of a recipe.
+        Save the text file to a designated directory.
+        
+        Returns
+        -------
+        None
+        """
         with open(self.text_file_abs_path, "w", encoding="utf-8") as txt_file:
             txt_file.write(f'{self.title_text}\n')
             txt_file.write(self.note_text)
