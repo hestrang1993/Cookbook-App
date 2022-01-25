@@ -166,7 +166,7 @@ class RecipeScraper:
         files = [f for f in os.listdir(root_dir) if os.path.isfile(os.path.join(root_dir, f))]
         files_list = []
         for file in files:
-            file_path = os.path.join(self._os_root, root_dir, file)
+            file_path = os.path.join(self.os_root, root_dir, file)
             files_list.append(file_path)
         return files_list
 
