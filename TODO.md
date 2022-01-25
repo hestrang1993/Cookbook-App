@@ -6,9 +6,6 @@ This repository stores and versions my work formatting recipes in mom's CookBook
 
 ## In Progress
 
-- [ ] Export all recipes as HTML files.
-    - [X] On 2022/01/25, 10:45 AM, I exported recipes 1 through 56 (Cheese Cookies)
-
 ## Completed
 
 - [X] `RecipeNoteScraper`
@@ -27,3 +24,5 @@ This repository stores and versions my work formatting recipes in mom's CookBook
     - [X] Save the note `str` as a text file.
         - [X] Make a file name safe `str` to name the text file.
         - [X] Create an absolute file path to save the text file to the text directory.
+- [X] Export all recipes as HTML files.
+    - [X] On 2022/01/25, 10:45 AM, I exported recipes 1 through 56 (Cheese Cookies)

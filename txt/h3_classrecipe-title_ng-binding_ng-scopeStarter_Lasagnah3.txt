@@ -1,1 +1,0 @@
-<h3 class="recipe-title ng-binding ng-scope">"Starter" Lasagna</h3>None
