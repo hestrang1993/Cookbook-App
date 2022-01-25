@@ -6,6 +6,9 @@ This repository stores and versions my work formatting recipes in mom's CookBook
 
 ## In Progress
 
+- [ ] Export all recipes as HTML files.
+    - [X] On 2022/01/25, 10:45 AM, I exported recipes 1 through 56 (Cheese Cookies)
+
 ## Completed
 
 - [X] `RecipeNoteScraper`
