@@ -6,6 +6,10 @@ This repository stores and versions my work formatting recipes in mom's CookBook
 
 ## In Progress
 
+- [ ] Format text files.
+    - [ ] Replace `\n` with `\n\n\n`
+    - [ ] Replace `"{text}."` with `"{text}.\n\n\n"`
+
 ## Completed
 
 - [X] `RecipeNoteScraper`
