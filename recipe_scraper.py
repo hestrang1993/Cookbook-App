@@ -37,7 +37,6 @@ class RecipeScraper:
         self._notes_dict = {"itemprop": "description"}
         self._codecs_encoding = "utf-8"
         self._os_root = os.path.dirname(os.path.abspath(__file__))
-        self._html_file_path_list = self.create_file_path_list(self.html_file_path)
         self._html_file = codecs.open(self.html_file_path, encoding=self.codecs_encoding).read()
         self._soup = BeautifulSoup(self.html_file, 'html.parser')
         self._recipe_title = self.soup.find(self.title_attr, self.title_dict).text
@@ -86,11 +85,6 @@ class RecipeScraper:
     def os_root(self):
         """str: A OS formatter to create absolute filepaths."""
         return self._os_root
-
-    @property
-    def html_file_path_list(self):
-        """list[str]: A list containing the absolute filepaths for all HTML files in the HTML directory."""
-        return self._html_file_path_list
 
     @property
     def html_file(self):
