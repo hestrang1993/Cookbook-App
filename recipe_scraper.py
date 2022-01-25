@@ -51,10 +51,18 @@ class RecipeScraper:
         """str: The absolute filepath to the HTML file that holds the recipe."""
         return self._html_file_path
 
+    @html_file_path.setter
+    def html_file_path(self, html_path):
+        self._html_file_path = html_path
+
     @property
     def text_dir(self):
         """str: The absolute filepath to the text file directory."""
         return self._text_dir
+
+    @text_dir.setter
+    def text_dir(self, directory):
+        self._text_dir = directory
 
     @property
     def title_attr(self):
@@ -147,28 +155,6 @@ class RecipeScraper:
         tag_str = tag_str.replace("<br/>", "\n")
         tag_soup = BeautifulSoup(tag_str, "html.parser")
         return tag_soup.text
-
-    def create_file_path_list(self, root_dir):
-        """
-        Parse through a specific directory.
-        Then, create an absolute path string for every file in a directory (exclude subdirectories).
-        Finally, return all these paths as a list.
-        
-        Parameters
-        ----------
-        root_dir : str
-            The absolute path to the directory.
-        Returns
-        -------
-        list:
-            A list of all absolute filepaths for all files in a specific directory.
-        """
-        files = [f for f in os.listdir(root_dir) if os.path.isfile(os.path.join(root_dir, f))]
-        files_list = []
-        for file in files:
-            file_path = os.path.join(self.os_root, root_dir, file)
-            files_list.append(file_path)
-        return files_list
 
     def write_text_file(self):
         """
