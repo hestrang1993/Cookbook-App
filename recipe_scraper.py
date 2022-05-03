@@ -137,7 +137,23 @@ class RecipeScraper:
         return self._text_file_path
 
     @staticmethod
-    def format_text(tag):
+    def _newline_sentences(string):
+        """
+        Turn sentence periods into double newline characters.
+        
+        Parameters
+        ----------
+        string : str
+            The unmodified string with run on paragraphs.
+
+        Returns
+        -------
+        str
+            The modified string with double line breaks in between each sentence.
+        """
+        return string.replace(". ", ".\n\n\n")
+
+    def format_text(self, tag):
         """
         Replace the :code:`<br/>` with :code:`/n`.
         
@@ -152,7 +168,9 @@ class RecipeScraper:
             The recipe notes with newlines in the proper places.
         """
         tag_str = str(tag)
-        tag_str = tag_str.replace("<br/>", "\n")
+        newline_character = "\n\n\n"
+        tag_str = tag_str.replace("<br/>", newline_character)
+        tag_str = self._newline_sentences(tag_str)
         tag_soup = BeautifulSoup(tag_str, "html.parser")
         return tag_soup.text
 
@@ -166,5 +184,5 @@ class RecipeScraper:
         None
         """
         with open(self.text_file_path, "w", encoding="utf-8") as txt_file:
-            txt_file.write(f'{self.recipe_title}\n')
+            txt_file.write(f'{self.recipe_title}\n\n\n')
             txt_file.write(self.notes_text)
