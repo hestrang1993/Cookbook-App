@@ -26,10 +26,19 @@ class DirSelector(Tk):
         self.topmost = topmost
         self.attributes('-topmost', self.topmost)
         self.title = title
-        self._dir_path = filedialog.askdirectory(title=self.title)
+        self._initial_dir = "C:\\Users\\harri\\PycharmProjects\\Cookbook-App"
+        self._dir_path = filedialog.askdirectory(title=self.title, )
     
+    @property
     def dir_path(self):
         """
         str: The filepath to the selected directory.
         """
         return self._dir_path
+    
+    @property
+    def initial_dir(self):
+        """
+        str: The directory the window will start on.
+        """
+        return self._initial_dir
