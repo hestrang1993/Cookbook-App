@@ -1,7 +1,14 @@
+"""
+The :module:`dir_selector` module stores the :class:`DirSelector` class.
+"""
+
 from tkinter import Tk, filedialog
 
 
 class DirSelector(Tk):
+    """
+    The :class:`DirSelector` extends :class:`Tk` to make selecting a directory easy.
+    """
     
     def __init__(self, title, topmost=True):
         """
@@ -26,10 +33,3 @@ class DirSelector(Tk):
         str: The filepath to the selected directory.
         """
         return self._dir_path
-
-
-if __name__ == '__main__':
-    input_selector_title = "Select Input Directory"
-    input_dir_selector = DirSelector(title=input_selector_title)
-    input_dir = input_dir_selector.dir_path
-    print(input_dir)
