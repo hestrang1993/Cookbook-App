@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 """
 The :module:`dir_selector` module stores the :class:`DirSelector` class.
 """
-
+import os
 from tkinter import Tk, filedialog
 
 
@@ -26,7 +27,7 @@ class DirSelector(Tk):
         self.topmost = topmost
         self.attributes('-topmost', self.topmost)
         self.title = title
-        self._initial_dir = "C:\\Users\\harri\\PycharmProjects\\Cookbook-App"
+        self._initial_dir = os.path.dirname(os.path.abspath(__file__))
         self._dir_path = filedialog.askdirectory(title=self.title, initialdir=self.initial_dir)
     
     @property
